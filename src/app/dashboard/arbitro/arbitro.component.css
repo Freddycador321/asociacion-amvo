@@ -1,0 +1,56 @@
+/* Título */
+h5.text-center {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+/* Tarjeta general */
+.card {
+  margin-bottom: 20px;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Colores según estado */
+.card.habilitado {
+  background-color: #2ecc71; /* Verde */
+  color: white;
+}
+
+.card.deshabilitado {
+  background-color: #95a5a6; /* Gris */
+  color: white;
+}
+
+/* Foto del árbitro */
+.foto-container {
+  text-align: center;
+  background: #f4f4f4;
+}
+
+.foto-arbitro {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Datos del árbitro */
+.datos-arbitro {
+  text-align: left;
+  font-size: 14px;
+}
+
+/* Botones de acciones */
+.acciones {
+  text-align: right;
+}
+
+.btn-group .btn {
+  margin-left: 5px;
+}

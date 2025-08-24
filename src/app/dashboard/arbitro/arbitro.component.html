@@ -1,0 +1,73 @@
+<br>
+<h5 class="text-center">ÁRBITROS</h5>
+<br>
+
+<div class="row">
+  <div class="col-lg-3 offset-1">
+    <div class="btn-group" role="group">
+      <button type="button" class="btn btn-outline-primary" (click)="agregar()">
+        <fa-icon [icon]="faPlus"></fa-icon> Nuevo Árbitro
+      </button>
+      <button type="button" class="btn btn-outline-danger" (click)="pdf()">
+        <mat-icon>picture_as_pdf</mat-icon> Descargar PDF
+      </button>
+    </div>
+  </div>
+
+  <!-- <div class="col-lg-8">
+    <input type="search"
+           class="form-control"
+           placeholder="Buscar por apellido o CI"
+           name="filterArbitro"
+           [(ngModel)]="filterArbitro"
+           maxlength="20">
+  </div> -->
+</div>
+
+<hr>
+
+<div class="row">
+  <!-- Tarjeta de cada árbitro -->
+  <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12"
+       *ngFor="let a of arbitros ; let i = index">
+
+    <div class="card"
+         [ngClass]="{'habilitado': a.estado=='HABILITADO',
+                     'deshabilitado': a.estado=='DESHABILITADO'}">
+
+      <!-- Foto -->
+      <div class="foto-container">
+        <img [src]="llenar_imagen(a.foto)" alt="Foto Árbitro" class="foto-arbitro">
+      </div>
+
+      <!-- Datos -->
+      <div class="card-body">
+        <div class="card-text datos-arbitro">
+          <strong>Nombre: </strong>{{a.apellido_arb}} {{a.nombre_arb}}<br>
+          <strong>CI: </strong>{{a.ci_arb}}<br>
+          <strong>Fecha Nac.: </strong>{{a.fecha_nac_arb| date}}<br>
+          <strong>Categoría: </strong>{{a.nivel}}<br>
+          <strong>Teléfono: </strong>{{a.cel_arb}}<br>
+          <strong>Gmail: </strong>{{a.gmail_arb}}<br>
+          <strong>Estado: </strong>{{a.estado}}<br>
+          <strong *ngIf="a.nota">Nota: </strong>{{a.nota}}<br *ngIf="a.nota">
+        </div>
+
+        <hr>
+
+        <!-- Botones -->
+        <div class="acciones">
+          <div class="btn-group" role="group">
+            <button type="button" (click)="eliminar(a)" class="btn btn-danger">
+              <fa-icon [icon]="faTrash"></fa-icon>
+            </button>
+            <button type="button" class="btn btn-success" (click)="actualizar(a)">
+              <fa-icon [icon]="faEdit"></fa-icon>
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

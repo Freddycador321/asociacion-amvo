@@ -1,0 +1,58 @@
+<div class="text-end">
+  <h4>Historial de transacciones</h4>
+  <button class="btn btn-primary"  [routerLink]="['/dashboard/almacen/inventario']"> <fa-icon [icon]="faArrowCircleLeft"></fa-icon> Atras</button>
+</div>
+<div class="row" style="width: 100%;">
+  <div class="col-10 offset-1">
+    <ng-container class="elevation-z3">
+      <table>
+        <tbody>
+          <tr>
+            <td style="width: 150px;"><b>Descripcion</b></td>
+            <td style="width: 350px;">{{producto.categoriaGrupo}} {{producto.descripcion}}</td>
+            <td style="width: 100px;"><b>Sucursal #</b></td>
+            <td style="width: 150px;">{{producto.numero}}</td>
+            <td style="width: 100px;"><b>Direccion:</b></td>
+            <td>{{producto.direccion}}</td>
+          </tr>
+          <tr>
+            <td style="width: 100px;"><b>Stock Actual</b></td>
+            <td>{{producto.stock}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <hr>
+      <h5><b>Detalle</b></h5>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Fecha</th>
+            <th>Usuario</th>
+            <th>Descripcion</th>
+            <th class="text-end">Ingreso</th>
+            <th class="text-end">Egreso</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of productos; let i= index" [ngClass]="{'table-success':item.ingreso>0}">
+            <td>{{i+1}}</td>
+            <td>{{item.fecha}}</td>
+            <td>{{item.user_id}}</td>
+            <td>{{item.descripcion}}</td>
+            <td class="text-end">{{item.ingreso}}</td>
+            <td class="text-end">{{item.egreso}}</td>
+          </tr>
+          <tr class="table-warning">
+            <td colspan="4">
+              Total
+            </td>
+            <td class="text-end"><b>{{totalIngreso}}</b></td>
+            <td class="text-end"><b>{{totalEgreso}}</b></td>
+          </tr>
+        </tbody>
+      </table>
+    </ng-container>
+  </div>
+</div>
+

@@ -1,0 +1,66 @@
+<div>
+  <br>
+  <h4 mat-dialog-title class="text-center"><strong>{{texto}}</strong></h4>
+  <mat-dialog-content class="mat-typography">
+      <div style="display: flex;flex-direction: column; margin:1rem auto; max-width: 700px; padding: 1rem;">
+          <form [formGroup]="agregar">
+            <mat-form-field appearance="fill">
+              <mat-label>Codigo</mat-label>
+                <input matInput formControlName="codigo" type="number" placeholder="codigo" name="codigo" max="200" min="1">
+              <mat-error *ngIf="codigo?.invalid">{{error_codigo()}}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label>Descripcion</mat-label>
+                  <input matInput formControlName="descripcion" type="text" id="descripcion" placeholder="Descripcion" name="descripcion" maxlength="30" minlength="3" pattern="[A-Za-z 0-9.]{3,50}" (focus)="true">
+                <mat-error *ngIf="descripcion?.invalid">{{error_descripcion()}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>stock</mat-label>
+                <input matInput formControlName="stock" type="number" placeholder="stock" name="stock">
+                <mat-error *ngIf="stock?.invalid">{{error_stock()}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Cantidad Minima</mat-label>
+                <input matInput formControlName="cantidad_minima" type="number" placeholder="Cantidad Minima" name="cantidad_minima">
+                <mat-error *ngIf="cantidad_minima?.invalid">{{error_cantidad_minima()}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Compra</mat-label>
+                <input matInput formControlName="precio_compra" type="number" placeholder="precio_compra" name="precio_compra">
+                <mat-error *ngIf="precio_compra?.invalid">{{error_precio_compra()}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Venta</mat-label>
+              <input matInput formControlName="precio_venta" type="number" placeholder="precio_venta" name="precio_venta">
+              <mat-error *ngIf="precio_venta?.invalid">{{error_precio_venta()}}</mat-error>
+            </mat-form-field>
+            <p>
+                    <mat-form-field appearance="fill" style="width: 100%;">
+                      <mat-label>Imagen</mat-label>
+                        <input matInput value={{name}}/>
+                        <input
+                          type="file"
+                          id="fileInput"
+                          name="fileInput"
+                          accept="image/*"
+                          (change)="cargarImagen($event)"
+                          formControlName="imagen"
+                          />
+                      <!-- <mat-icon matSuffix>image</mat-icon> -->
+                    </mat-form-field>
+                  </p>
+          </form>
+          <div style="text-align: center; width: 100%;">
+              <img *ngIf="previsualizacion" height="100px" width="100px" [src]="previsualizacion" alt="">
+           </div>
+      </div>
+    </mat-dialog-content>
+    <div mat-dialog-actions>
+      <button (click)="cancelar()" class="btn btn-secondary">Cancelar</button>
+      <button [mat-dialog-close]="agregar" class="btn btn-danger" [disabled]="agregar.invalid" (click)="nuevo()">Agregar</button>
+  </div>
+</div>

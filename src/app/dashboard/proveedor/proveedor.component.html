@@ -1,0 +1,54 @@
+<br>
+<h5 class="text-center">PROVEEDORES</h5>
+<br>
+<div class="row">
+    <div class="col-lg-2 offset-1" *ngIf="isEncargado()">
+        <div class="btn-group" role="group">
+            <button class="btn btn-outline-primary"(click)="agregar()"><fa-icon [icon]="faPlus"></fa-icon>Nuevo Proveedor</button>
+        </div>
+    </div>
+    <div class="col-lg-8">
+        <!-- <input type="search" class="form-control" placeholder="Buscar" name="filterPost"  [(ngModel)]="filterpost"  maxlength="20"> -->
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-lg-8 offset-2">
+        <table class="table table-sm">
+            <thead class="table-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Empresa</th>
+                <th scope="col">Celular</th>
+                <th scope="col">Observacion</th>
+                <th scope="col" style="text-align: center;">Opcion</th>
+            </tr>
+            </thead>
+        <tbody>
+            <tr *ngFor="let c of proveedores;let i =index">
+            <td>{{i + 1}}</td>
+            <td>{{c.nombre}} {{c.apellido}}</td>
+            <td>{{c.empresa}}</td>
+            <td>{{c.celular}}</td>
+            <td>{{c.observacion}}</td>
+            <td style="text-align: center;">
+                <div class="btn-group" role="group" *ngIf="isEncargado()" >
+                <button type="button" class="btn btn-success btn-sm" (click)="actualizar(c)">
+                    <fa-icon [icon]="faEdit"></fa-icon>
+                </button>
+                <button href="" (click)="eliminar(c)" class="btn btn-danger btn-sm" *ngIf="isAdmin()">
+                    <fa-icon [icon]="faTrash"></fa-icon>
+                </button>
+                <button [routerLink]="['/dashboard/proveedor/ver/',c.id]" class="btn btn-info btn-sm" *ngIf="isAdmin()">
+                    <fa-icon [icon]="faEye"></fa-icon>
+                </button>
+                </div>
+            </td>
+            </tr>
+        </tbody>
+        </table>
+    </div>
+</div>
+
+

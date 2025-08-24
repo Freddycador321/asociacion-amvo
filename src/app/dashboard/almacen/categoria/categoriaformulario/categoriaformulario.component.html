@@ -1,0 +1,24 @@
+<div>
+  <br>
+  <h4 mat-dialog-title class="text-center"><strong>{{texto}}</strong></h4>
+  <mat-dialog-content class="mat-typography">
+      <div style="display: flex;flex-direction: column; margin:1rem auto; max-width: 700px; padding: 1rem;">
+          <form [formGroup]="agregar">
+            <mat-form-field appearance="fill">
+                <mat-label>Nombre</mat-label>
+                  <input matInput formControlName="grupo" type="text" placeholder="grupo" name="grupo">
+                <mat-error *ngIf="grupo?.invalid">{{error_grupo()}}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Codigo</mat-label>
+                <input matInput formControlName="codigo" type="text" placeholder="codigo" name="codigo" pattern="[A-Za-z]{3}">
+              <mat-error *ngIf="codigo?.invalid">{{error_codigo()}}</mat-error>
+          </mat-form-field>
+          </form>
+      </div>
+    </mat-dialog-content>
+    <div mat-dialog-actions>
+      <button (click)="cancelar()" class="btn btn-secondary">Cancelar</button>
+      <button [mat-dialog-close]="agregar" class="btn btn-danger" [disabled]="agregar.invalid" (click)="nuevo()">Guardar</button>
+  </div>
+</div>

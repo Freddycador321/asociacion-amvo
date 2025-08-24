@@ -1,0 +1,59 @@
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-container {
+  width: 45%;
+}
+
+.example-option-img {
+  vertical-align: middle;
+  margin-right: 8px;
+}
+
+[dir='rtl'] .example-option-img {
+  margin-right: 0;
+  margin-left: 8px;
+}
+.row{
+  width: 100%;
+}
+p {
+    font-family: Lato;
+  }
+
+  .inp {
+    width: 360px;
+  }
+
+  .parent {
+    position: relative;
+  }
+
+  .child {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .fixed{
+      position: sticky;
+      top:0;
+      z-index: 999;
+  }
+
+  .example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+
+  .example-full-width {
+    width: 100%;
+  }
+  .derecha{
+    text-align: right;
+  }

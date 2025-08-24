@@ -1,0 +1,47 @@
+<br>
+<h5 class="text-center">USUARIOS</h5>
+<br>
+	<div class="row">
+		<div class="col-lg-3 offset-1">
+			<div class="btn-group" role="group">
+				<button type="button" class="btn btn-outline-primary" (click)="agregar()"><fa-icon [icon]="faPlus"></fa-icon> Nuevo Usuario</button>
+				<button type="button" class="btn btn-outline-danger" (click)="pdf()"><mat-icon>picture_as_pdf</mat-icon>Descargar PDF</button>
+			</div>
+		</div>
+		<div class="col-lg-8">
+			<!-- <input type="search" class="form-control" placeholder="Buscar" name="filterPost"  [(ngModel)]="filterpost"  maxlength="20"> -->
+		</div>
+	</div>
+	<hr>
+	<div class="row">
+		<div class="col-xl-3 col-lg-4 col-md-6 col-sm-12" *ngFor="let u of usuarios;let i = index">
+      <!-- <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12" *ngFor="let u of usuarios | filterU: filterpost;let i = index"> -->
+			<div class="card" >
+				<!-- <div [ngClass]="{'card bg-primary':i%2==0,'card bg-light':i%2==1}"> -->
+					<div [ngClass]="{'card bg-primary':u.rol==1,'card bg-info':u.rol==2,'card bg-light':u.rol==3}">
+					<div style="text-align: center;">
+					<img src="{{llenar_imagen(u.imagen)}}" alt="Foto" width="100%" height="200px">
+					</div>
+					<div class="card-body">
+					<div class="card-text"style="text-align:left;">
+						<strong>Nombre: </strong>{{u.apellido}} {{u.nombre}}<br>
+						<strong>Rol: </strong>{{role(u.rol)}} <strong>{{u.numero}}</strong><br>
+            <strong *ngIf="u.direccion">Direccion Sucursal: </strong>{{u.direccion}}<br *ngIf="u.direccion">
+            <strong>Cuenta: </strong>{{u.username}}
+					</div>
+					<hr>
+					<div class="card-text"style="text-align:right">
+						<div class="btn-group" role="group" >
+							<button href="" (click)="eliminar(u)" class="btn btn-danger">
+								<fa-icon [icon]="faTrash"></fa-icon>
+							</button>
+							<button type="button" class="btn btn-success" (click)="actualizar(u)">
+								<fa-icon [icon]="faEdit"></fa-icon>
+							</button>
+						</div>
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>

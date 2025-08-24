@@ -1,0 +1,24 @@
+<div class="container">
+  <form [formGroup]="nuevo">
+  <div class="row">
+      <div class="col-10">
+          <mat-form-field class="example-full-width">
+              <mat-label>NIT/CI</mat-label>
+              <input type="text" placeholder="NIT/CI" aria-label="Number" matInput #cliente_id [formControl]="NIT" [matAutocomplete]="auto" (input)="nuevoNit($event);">
+              <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
+              <mat-option *ngFor="let option of filtroCliente | async" [value]="option.nit" (click)="seleccionarCliente(option)">
+                  {{option.nit}} {{option.nombre}}
+              </mat-option>
+              </mat-autocomplete>
+              <mat-error >{{error_nit()}}</mat-error>
+          </mat-form-field>
+      </div>
+      <div class="col-10">
+          <mat-form-field class="example-full-width">
+              <mat-label>Nombre</mat-label>
+              <input matInput formControlName="nombre" type="text" placeholder="Nombre" name="nombre" maxlength="30" minlength="3" (keyup)="nuevoNombre($event)">
+          </mat-form-field>
+      </div>
+  </div>
+  </form>
+</div>

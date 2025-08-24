@@ -1,0 +1,13 @@
+h4{
+  font-size: 25px;
+}
+#fileInput {
+  position: absolute;
+  cursor: pointer;
+  z-index: 10;
+  opacity: 0;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+}

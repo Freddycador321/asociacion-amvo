@@ -1,0 +1,50 @@
+<br>
+<h5 class="text-center">CATEGORIAS</h5>
+<br>
+  <div class="row">
+    <div class="col-sm-12 col-md-4 col-lg-3 col-xl-3">
+      <mat-form-field appearance="fill" style="width: 100%;" *ngIf="user.rol==1">
+        <mat-label>SUCURSALES</mat-label>
+        <mat-select>
+          <mat-option *ngFor="let item of sucursales" [value]="item.id" (click)="mostrarCategorias(item)"># {{item.numero}} <strong style="font-size: 10px;">{{item.direccion|uppercase}}</strong> </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div class="card bg-light mb-3" *ngIf="sucursal.id!=0">
+        <div class="card-header">
+          <img src="{{llenar_imagen(sucursal.imagen)}}" width="100%" height="150px">
+        </div>
+        <div class="card-body" style="text-align: justify;">
+          <p class="card-text">Numero: {{sucursal.numero}}</p>
+          <p class="card-text">Direccion: {{sucursal.direccion}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-12 col-md-8 col-lg-9 col-xl-9">
+      <div class="row" *ngIf="sucursal.id!=0">
+        <button class="btn btn-outline-primary" (click)="agregar()"><fa-icon [icon]="faPlus"></fa-icon> Nueva Categoria</button>
+      </div>
+      <hr *ngIf="sucursal.id!=0">
+      <hr *ngIf="sucursal.id!=0">
+      <div class="row" *ngIf="sucursal.id!=0">
+        <div class="col-xl-3 col-lg-4 col-sm-6" *ngFor="let item of categorias">
+          <div class="card">
+            <div class="card bg-light">
+              <div class="card-header bg-dark text-white">{{item.grupo}} [{{item.codigo}}]</div>
+              <div class="card-body">
+                <div class="card-text"style="text-align:right">
+                  <div class="btn-group" role="group" >
+                    <a (click)="eliminar(item)" class="btn btn-danger btn-sm">
+                      <fa-icon [icon]="faTrash"></fa-icon>
+                    </a>
+                    <a class="btn btn-success btn-sm" (click)="actualizar(item)">
+                      <fa-icon [icon]="faEdit"></fa-icon>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

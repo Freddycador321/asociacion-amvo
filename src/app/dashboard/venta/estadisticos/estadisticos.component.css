@@ -1,0 +1,10 @@
+.row{
+  width: 100%;
+}
+.test{
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 10px;
+}
+mat-form-field{
+  width: 100%;
+}

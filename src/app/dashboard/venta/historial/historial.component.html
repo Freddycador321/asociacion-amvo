@@ -1,0 +1,78 @@
+<br>
+<div class="row">
+<br>
+<mat-form-field class="example" appearance="fill" *ngIf="usuarioForm.rol==1">
+  <mat-label>SUCURSALES</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let item of sucursales" [value]="item.id" (click)="seleccionarSucursal(item)"># {{item.numero}} <strong style="font-size: 10px;">{{item.direccion|uppercase}}</strong> </mat-option>
+  </mat-select>
+</mat-form-field>
+<h5 class="text-center">DETALLE DE VENTAS</h5>
+<hr>
+<div class="row">
+  <div class="col-2">
+  </div>
+  <div class="col-8">
+
+  <form [formGroup]="buscar">
+    <mat-form-field>
+      <mat-label>Fecha Inicio</mat-label>
+        <input matInput formControlName="fechaInicio" [matDatepicker]="picker" placeholder="Fecha Inicio">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Fecha Final</mat-label>
+      <input matInput formControlName="fechaFin" [matDatepicker]="picker1" placeholder="Fecha Fin">
+      <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+      <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Usuario</mat-label>
+      <input matInput formControlName="usuario" placeholder="usuario">
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Cliente</mat-label>
+      <input matInput formControlName="cliente" placeholder="Cliente/NIT">
+    </mat-form-field>
+    <button class="btn btn-primary" [disabled]="buscar.invalid" (click)="buscarVentas()">Buscar</button>
+  </form>
+  <br>
+    <table class="table table-bordered text-center">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Fecha</th>
+          <th scope="col">Cliente</th>
+          <th scope="col">NIT/CI</th>
+          <th scope="col">Usuario</th>
+          <th scope="col">Precio [Bs]</th>
+          <th scope="col">Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of historial;let i=index">
+          <th scope="row">{{i+1}}</th>
+          <td class="text-start">{{item.fecha}}</td>
+          <td class="text-center">{{item.nombre}}</td>
+          <td class="text-center">{{item.nit}}</td>
+          <td class="text-center">{{item.username}}</td>
+          <td class="text-end">{{item.total|number:'2.2'}}</td>
+          <!-- <td class="text-end" class="text-primary text-center" (click)="verDetalle(item)"><fa-icon [icon]="faEye" class="cursor"></fa-icon></td> -->
+          <td>
+            <button mat-button [matMenuTriggerFor]="menu" style="margin-top:-10px;"><fa-icon [icon]="faGear"></fa-icon></button>
+            <mat-menu #menu="matMenu">
+              <button mat-button class="boton text-primary" (click)="verDetalle(item)"><fa-icon [icon]="faEye"></fa-icon> Ver Detalle</button> <br>
+              <button mat-button class="boton text-danger" (click)="imprimir(item)"><fa-icon [icon]="faPrint"></fa-icon> Imprimir</button>
+            </mat-menu>
+          </td>
+        </tr>
+        <tr class="table-success fw-bold">
+          <td class="text-start" colspan="5">TOTAL VENDIDO</td>
+          <td class="text-end">{{total()|number:'2.2'}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>

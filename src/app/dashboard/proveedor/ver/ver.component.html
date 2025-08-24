@@ -1,0 +1,52 @@
+<h4 class="text-center">Proveedor</h4>
+<hr>
+<div class="row">
+  <div class="col-3">
+    <h5 class="text-center"><b>DATOS PERSONALES</b></h5>
+    <div class="card">
+      <div class="card-body">
+      <h5 class="card-title text-center"><b>{{form.nombre|uppercase}} {{form.apellido|uppercase}}</b></h5>
+      <p class="card-text"><b>Empresa:</b> {{form.empresa|uppercase}}</p>
+      <p class="card-text"><b>Celular:</b> {{form.celular|uppercase}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="col-8">
+    <div class="col-12">
+      <div class="text-end">
+        <a class="btn btn-dark" href="dashboard/proveedor"><fa-icon [icon]="faArrowCircleLeft"></fa-icon>Atras</a>
+      </div>
+      <div class="text-start">
+        <button class="btn btn-primary"(click)="agregar()"><fa-icon [icon]="faPlus"></fa-icon>Nuevo Producto</button>
+      </div>
+    </div>
+    <hr>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Nro</th>
+          <th>Producto</th>
+          <th>Precio</th>
+          <th class="text-end">Opcion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of form.items;let i=index">
+          <td>{{i+1}}</td>
+          <td>{{item.nuevo}}</td>
+          <td>{{item.precio}}</td>
+          <td class="text-end">
+            <div class="btn-group" role="group" >
+              <button type="button" class="btn btn-success btn-sm" (click)="actualizar(item)">
+                  <fa-icon [icon]="faEdit"></fa-icon>
+              </button>
+              <button href="" (click)="eliminar(item)" class="btn btn-danger btn-sm">
+                  <fa-icon [icon]="faTrash"></fa-icon>
+              </button>
+              </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

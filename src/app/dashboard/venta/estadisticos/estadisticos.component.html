@@ -1,0 +1,95 @@
+<div class="row">
+  <!-- <div class="col-2"> -->
+    <br>
+    <h4 class="text-center" style="font-size: 20px;"><strong>PRODUCTOS POR MES</strong></h4>
+    <div class="row">
+      <div class="col-md-6 col-sm-12" *ngIf="user.rol==1">
+        <mat-form-field>
+          <mat-label>SUCURSALES</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let item of sucursales" [value]="item.id" (click)="seleccionarSucursal(item)"># {{item.numero}} <strong style="font-size: 10px;">{{item.direccion|uppercase}}</strong> </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6 col-sm-12">
+          <mat-form-field>
+          <mat-label>GESTION</mat-label>
+          <mat-select>
+            <mat-option>Vacio</mat-option>
+            <mat-option *ngFor="let c of gestion" [value]="c" (click)="seleccionarGestion(c);">{{c}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+  <!-- </div> -->
+  <div class="col-12" *ngIf="mostrar">
+    <mat-card class="example-card" *ngFor="let cat of obs|async">
+      <h4 class="text-center">{{cat.mes}}</h4>
+    <!-- <ngx-charts-pie-chart
+      [view]="[700,300]"
+      [results]="cat.valor"
+      [legendTitle]="'Productos vendidos'"
+      [legend]="true"
+      [gradient]="true">
+    </ngx-charts-pie-chart> -->
+    <!-- <ngx-charts-pie-chart
+                [view]="[1000,300]"
+                [results]="cat.valor"
+                [legend]="showLegend"
+                [labels]="showLabels"
+                [gradient]="gradient"
+              ></ngx-charts-pie-chart> -->
+
+              <ngx-charts-pie-chart
+              [view]="[1000,300]"
+              [results]="cat.valor"
+              [scheme]="colorScheme"
+              [gradient]="gradient"
+              [legend]="showLegend"
+              [labels]="showLabels"
+              [legendTitle]="'Productos Vendidos'"
+              [doughnut]="isDoughnut">
+            </ngx-charts-pie-chart>
+
+  <!-- <ngx-charts-bar-vertical
+    [view]="[1000,400]"
+    [results]="cat.valor"
+    [xAxisLabel]="'Productos'"
+    [legendTitle]="'Productos vendidos'"
+    [yAxisLabel]="'Cantidad'"
+    [legend]="true"
+    [showXAxisLabel]="true"
+    [showYAxisLabel]="true"
+    [xAxis]="true"
+    [yAxis]="true"
+    [gradient]="true">
+</ngx-charts-bar-vertical> -->
+
+    </mat-card>
+    <mat-paginator [pageSizeOptions]="[1,2,3]"></mat-paginator>
+  </div>
+</div>
+
+
+<!-- <div  *ngFor="let cat of categorias;let i=index">
+  <br>
+  <div class="btn-group offset-3" role="group" aria-label="Basic example">
+    <button class="btn btn-primary btn-sm">MES:</button>
+    <button class="btn btn-outline-primary btn-sm">{{meses[i]}} </button>
+  </div>
+  <ngx-charts-pie-chart
+    [view]="view"
+    [scheme]="colores[i]"
+    [results]="cat"
+    [gradient]="gradient"
+    [legend]="showLegend"
+    [legendPosition]="legendPosition"
+    [labels]="showLabels"
+    [doughnut]="isDoughnut"
+    (select)="onSelect($event)"
+    (activate)="onActivate($event)"
+    (deactivate)="onDeactivate($event)"
+    >
+  </ngx-charts-pie-chart>
+</div>
+ -->

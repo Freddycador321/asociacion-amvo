@@ -1,0 +1,163 @@
+<br>
+<h2 class="text-center"><strong>Bienvenido</strong></h2>
+<h5 class="text-center">
+    Te encuentras en estos momentos en el area de administración, con tus privilegios puedes operar en lo siguiente:
+</h5>
+<br>
+<hr>
+<div class="row">
+  <div class="col-1"></div>
+    <div class="col-xl-3 col-lg-4">
+      <h4 class="text-center"><strong>GESTION PERSONAS</strong></h4>
+      <a href="/dashboard/usuario" *ngIf="permisos.isEncargado()">
+        <div class="card mb-3" style="max-width: 540px;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="../../../assets/images/usuarios.png" class="img-fluid rounded-start">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">Usuarios</h5>
+                <!-- <p class="card-text">Gestion de personal registrado en el sistema</p> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="/dashboard/proveedor" *ngIf="permisos.isEncargado()">
+        <div class="card mb-3" style="max-width: 540px;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="../../../assets/images/proveedor.png" class="img-fluid rounded-start">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">Proveedores</h5>
+                <!-- <p class="card-text">Gestion de proveedores de diferentes productos</p> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+
+      <a href="/dashboard/cliente">
+        <div class="card mb-3" style="max-width: 540px;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <img src="../../../assets/images/clientes.png" class="img-fluid rounded-start">
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">Clientes</h5>
+                <!-- <p class="card-text">Gestion de clientes registrado en el sistema</p> -->
+                <!-- <p class="card-text"><small class="text-body-secondary">U 3 mins ago</small></p> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+    <div class="col-xl-7 col-lg-6">
+        <h4 class="text-center"><strong>COMERCIAL</strong></h4>
+        <div class="row">
+          <div class="col-6">
+            <a href="/dashboard/almacen/sucursal" *ngIf="permisos.isAdmin()">
+              <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="../../../assets/images/sucursal.png" class="img-fluid rounded-start">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Sucursales</h5>
+                      <!-- <p class="card-text">Sucursales disponibles</p> -->
+                      <!-- <p class="card-text"><small class="text-body-secondary">U 3 mins ago</small></p> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            <a href="/dashboard/almacen/producto" *ngIf="permisos.isEncargado()">
+              <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="../../../assets/images/productos.png" class="img-fluid rounded-start">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Productos</h5>
+                      <!-- <p class="card-text">Gestion de personal registrado en el sistema</p> -->
+                      <!-- <p class="card-text"><small class="text-body-secondary">U 3 mins ago</small></p> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <a href="/dashboard/almacen/inventario" *ngIf="permisos.isEncargado()">
+              <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="../../../assets/images/inventario.png" class="img-fluid rounded-start">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Inventario</h5>
+                      <!-- <p class="card-text">Gestion de personal registrado en el sistema</p> -->
+                      <!-- <p class="card-text"><small class="text-body-secondary">U 3 mins ago</small></p> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+          <div class="col-6">
+            <a href="/dashboard/venta/transaccion">
+              <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="../../../assets/images/venta.png" class="img-fluid rounded-start">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Ventas</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+
+            <a href="/dashboard/venta/historial" *ngIf="permisos.isEncargado()">
+              <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="../../../assets/images/ventas.png" class="img-fluid rounded-start">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Reporte Ventas</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+            <a href="/dashboard/venta/estadistico" *ngIf="permisos.isEncargado()">
+              <div class="card mb-3" style="max-width: 540px;">
+                <div class="row g-0">
+                  <div class="col-md-4">
+                    <img src="../../../assets/images/graficos.png" class="img-fluid rounded-start">
+                  </div>
+                  <div class="col-md-8">
+                    <div class="card-body">
+                      <h5 class="card-title">Reportes Graficos</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+</div>
+

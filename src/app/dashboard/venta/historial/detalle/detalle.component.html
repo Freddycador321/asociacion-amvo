@@ -1,0 +1,34 @@
+<div>
+  <br>
+  <h5 class="text-center">Detalle de La Venta</h5>
+  <div mat-dialog-content>
+    <table class="table">
+      <thead class="table-dark">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Detalle</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">Precio</th>
+          <th scope="col">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let fila of item.historial;let i=index">
+          <td>{{i+1}}</td>
+            <td>{{fila.nombre}}</td>
+            <td class="text-end">{{fila.cantidad}}</td>
+            <td class="text-end">{{fila.precio|number:'2.2'}}</td>
+            <td class="text-end">{{fila.precio*fila.cantidad|number:'2.2'}}</td>
+        </tr>
+        <tr class="table-success">
+          <td colspan="4">Total</td>
+          <td><strong>{{total()|number:'2.2'}}</strong>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+<div mat-dialog-actions>
+    <button class="btn btn-primary" (click)="cancelar()">Cerrar</button>
+</div>
+

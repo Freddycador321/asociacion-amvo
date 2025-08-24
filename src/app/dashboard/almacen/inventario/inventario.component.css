@@ -1,0 +1,42 @@
+h5{
+  font-size: 25px;
+}
+h3{
+  font-size: 20px;
+}
+.alerta{
+  background-color: #f19999;
+}
+.text-bg-warning, .text-bg-success, .text-bg-danger{
+  font-size: 11px;
+  font-style: normal;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.azul{
+  color: #1948ad;
+  font-size: 13px;
+}
+.row{
+  width: 100%;
+}
+.example-viewport {
+  height: 500px;
+  width: 200px;
+  color: #000;
+}
+
+.example-item {
+  height: 120px;
+}
+.prueba:hover{
+  background-color:yellow;
+  cursor: pointer;
+}
+img{
+  width: 45px;
+  height: 45px;
+}
+
+.texto{
+  font-size: 12px;
+}

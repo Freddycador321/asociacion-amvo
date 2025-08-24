@@ -1,0 +1,34 @@
+<div>
+  <br>
+  <h4 mat-dialog-title class="text-center"><strong>{{texto}}</strong></h4>
+  <mat-dialog-content class="mat-typography">
+      <div style="display: flex;flex-direction: column; margin:1rem auto; max-width: 700px; padding: 1rem;">
+        <form [formGroup]="agregar">
+          <mat-form-field appearance="fill">
+              <mat-label>NIT/CI</mat-label>
+              <input matInput formControlName="nit" type="number" placeholder="nit" name="nit" maxlength="20" minlength="6">
+              <mat-error *ngIf="nit?.invalid">{{error_nit()}}</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+              <mat-label>Nombre</mat-label>
+                <input matInput formControlName="nombre" type="text" placeholder="Nombre" name="nombre" maxlength="20" minlength="3" pattern="[A-Za-z ]{3,20}">
+              <mat-error *ngIf="nombre?.invalid">{{error_nombre()}}</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+              <mat-label>Celular</mat-label>
+              <input matInput formControlName="celular" type="text" placeholder="Cuenta" name="celular" minlength="8" maxlength="15" pattern="[+ 0-9]{8,15}">
+              <mat-error *ngIf="celular?.invalid">{{error_celular()}}</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Direccion</mat-label>
+            <input matInput formControlName="direccion" type="text" placeholder="Cuenta" name="direccion" minlength="5" maxlength="50" pattern="[A-Za-z0-9 .#/Ññ]{5,50}">
+            <mat-error *ngIf="direccion?.invalid">{{error_direccion()}}</mat-error>
+          </mat-form-field>
+        </form>
+      </div>
+    </mat-dialog-content>
+  <div mat-dialog-actions>
+    <button (click)="cancelar()" class="btn btn-secondary">Cancelar</button>
+    <button [mat-dialog-close]="agregar" class="btn btn-danger" [disabled]="agregar.invalid" (click)="nuevo()">Agregar</button>
+  </div>
+</div>

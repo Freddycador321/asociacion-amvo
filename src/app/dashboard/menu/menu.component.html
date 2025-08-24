@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary"  data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/dashboard"><fa-icon [icon]="faHome"></fa-icon> Inicio</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/dashboard/usuario" *ngIf="isEncargado()"><fa-icon [icon]="faUser"></fa-icon> Usuarios</a>
+        </li>
+        <!--ruta de arbitros-->
+         <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/dashboard/arbitro" *ngIf="isEncargado()"><fa-icon [icon]="faUser"></fa-icon> Arbitros</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/dashboard/cliente"><fa-icon [icon]="faUsers"></fa-icon> Clientes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/dashboard/proveedor" *ngIf="isAdmin()"><fa-icon [icon]="faUsers"></fa-icon> Proveedores</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/dashboard/almacen/sucursal" *ngIf="isAdmin()"><fa-icon [icon]="faIndustry"></fa-icon> Sucursales</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <fa-icon [icon]="faIndustry"></fa-icon> Almacen
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" *ngIf="isEncargado()" href="/dashboard/almacen/categoria">Categorias</a></li>
+            <li><a class="dropdown-item" *ngIf="isEncargado()" href="/dashboard/almacen/producto">Productos</a></li>
+            <li><a class="dropdown-item" *ngIf="isEncargado()" href="/dashboard/almacen/inventario">Inventario</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="/dashboard/almacen/producto/sucursal">Otras Sucursales</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <fa-icon [icon]="faDollar"></fa-icon> Ventas
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/dashboard/venta/transaccion">Realizar Venta</a></li>
+            <li><a class="dropdown-item" *ngIf="isEncargado()" href="/dashboard/venta/historial">Historial</a></li>
+            <li><a class="dropdown-item" *ngIf="isEncargado()" href="/dashboard/venta/estadistico">Estadisticos</a></li>
+          </ul>
+        </li>
+      </ul>
+      <span class="navbar-text">
+        <div class="dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          <fa-icon [icon]="faUser"></fa-icon>
+          {{getName()}}
+        </a>
+        <ul class="dropdown-menu">
+          <a class="dropdown-item" href="/dashboard/perfil">  Perfil</a>
+          <a class="dropdown-item" href="/" (click)="cerrarSesion()">  Cerrar Sesion</a>
+        </ul>
+      </div>
+    </span>
+    </div>
+  </div>
+</nav>
+<br><br><br>
+<router-outlet></router-outlet>

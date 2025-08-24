@@ -1,0 +1,17 @@
+h5{
+  font-size: 25px;
+}
+.cursor{
+  cursor: pointer;
+}
+mat-form-field{
+  width: 20%;
+}
+.row{
+  width: 100%;
+}
+.example{width: 30%;}
+.boton:hover{
+  width: 100%;
+  background-color: rgb(172, 171, 171);
+}
