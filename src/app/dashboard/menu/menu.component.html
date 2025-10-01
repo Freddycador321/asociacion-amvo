@@ -16,17 +16,34 @@
          <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/dashboard/arbitro" *ngIf="isEncargado()"><fa-icon [icon]="faUser"></fa-icon> Arbitros</a>
         </li>
+        <!--Jugadores-->
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/dashboard/jugador" *ngIf="isEncargado()"><fa-icon [icon]="faUser"></fa-icon> Jugadores</a>
+        </li>
+        <!--Equipo-->
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/dashboard/equipo" *ngIf="isEncargado()"><fa-icon [icon]="faUser"></fa-icon> Equipos</a>
+        </li>
+        <!--Jugadores-->
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/dashboard/categoria" *ngIf="isEncargado()"><fa-icon [icon]="faUser"></fa-icon> Categoria</a>
+        </li>
+         <!--Jugadores-->
+          <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/dashboard/club" *ngIf="isEncargado()"><fa-icon [icon]="faUser"></fa-icon> Clubs</a>
+        </li>
 
-        <li class="nav-item">
+
+        <!-- <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/dashboard/cliente"><fa-icon [icon]="faUsers"></fa-icon> Clientes</a>
-        </li>
-        <li class="nav-item">
+        </li> -->
+        <!-- <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/dashboard/proveedor" *ngIf="isAdmin()"><fa-icon [icon]="faUsers"></fa-icon> Proveedores</a>
-        </li>
-        <li class="nav-item">
+        </li> -->
+        <!-- <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="/dashboard/almacen/sucursal" *ngIf="isAdmin()"><fa-icon [icon]="faIndustry"></fa-icon> Sucursales</a>
-        </li>
-        <li class="nav-item dropdown">
+        </li> -->
+        <!-- <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             <fa-icon [icon]="faIndustry"></fa-icon> Almacen
           </a>
@@ -47,7 +64,7 @@
             <li><a class="dropdown-item" *ngIf="isEncargado()" href="/dashboard/venta/historial">Historial</a></li>
             <li><a class="dropdown-item" *ngIf="isEncargado()" href="/dashboard/venta/estadistico">Estadisticos</a></li>
           </ul>
-        </li>
+        </li> -->
       </ul>
       <span class="navbar-text">
         <div class="dropdown">

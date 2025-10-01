@@ -1,0 +1,125 @@
+.club-container {
+  padding: 20px;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Sección de búsqueda */
+.search-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.filter-options {
+  display: flex;
+  gap: 10px;
+}
+
+.filter-select {
+  padding: 6px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+/* Resultados */
+.results-section {
+  margin-top: 20px;
+}
+
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.results-header h3 {
+  margin: 0;
+}
+
+.add-btn {
+  padding: 6px 12px;
+  background-color: #007bff;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.add-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Tabla */
+.table-container {
+  margin-top: 15px;
+  overflow-x: auto;
+}
+
+.clubes-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.clubes-table th,
+.clubes-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+
+.clubes-table th {
+  background-color: #343a40;
+  color: white;
+}
+
+.photo-cell {
+  width: 70px;
+}
+
+.table-photo {
+  width: 60px;
+  height: 60px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+/* Botones de acción */
+.actions-cell {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-icon {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.edit-btn {
+  color: #28a745;
+}
+
+.delete-btn {
+  color: #dc3545;
+}
+
+.edit-btn:hover {
+  transform: scale(1.1);
+}
+
+.delete-btn:hover {
+  transform: scale(1.1);
+}

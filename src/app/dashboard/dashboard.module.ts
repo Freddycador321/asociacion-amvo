@@ -9,6 +9,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { MenuComponent } from './menu/menu.component';
 import { MatCardModule } from '@angular/material/card';
 import { PerfilComponent } from './perfil/perfil.component';
+import { JugadorComponent } from './jugador/jugador.component';
+import { CategoriaComponent } from './categoria/categoria.component';
 
 
 @NgModule({
@@ -16,7 +18,9 @@ import { PerfilComponent } from './perfil/perfil.component';
     DashboardComponent,
     HomeComponent,
     MenuComponent,
-    PerfilComponent
+    PerfilComponent,
+    JugadorComponent,
+    CategoriaComponent
   ],
   imports: [
     CommonModule,

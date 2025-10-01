@@ -1,0 +1,58 @@
+<div class="categoria-container">
+
+  <!-- Header -->
+  <div class="header">
+    <h1 class="title">Gestión de Categorías</h1>
+  </div>
+
+  <!-- Search Section -->
+  <div class="search-section">
+    <div class="filter-options">
+      <!-- Filtro de texto -->
+      <!-- <input
+        type="text"
+        class="filter-input"
+        placeholder="Buscar categoría o rama..."
+        [(ngModel)]="filterpost"> -->
+    </div>
+  </div>
+
+  <!-- Resultados -->
+  <div class="results-section">
+    <div class="results-header">
+      <h3>Categorías Registradas ({{categorias.length}})</h3>
+      <button class="btn btn-primary add-btn" (click)="agregar()">
+        ➕ Nueva Categoría
+      </button>
+    </div>
+
+    <!-- Tabla de categorías -->
+    <div class="table-container">
+      <table class="categorias-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Categoría</th>
+            <th>Rama</th>
+            <th>Club</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- <tr *ngFor="let cat of categorias | filter:filterpost; let i = index"> -->
+            <tr *ngFor="let cat of categorias; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ cat.categoria }}</td>
+            <td>{{ cat.rama }}</td>
+            <td>{{ cat.club?.nombre_club || 'Sin club' }}</td>
+            <td class="actions-cell">
+              <button class="btn-icon edit-btn" (click)="actualizar(cat)">✏️</button>
+              <button class="btn-icon delete-btn" (click)="eliminar(cat)">🗑️</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

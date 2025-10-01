@@ -1,26 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ArbitroRoutingModule } from './arbitro-routing.module';
-import { ArbitroComponent } from '../arbitro/arbitro.component';
-import { FormularioComponent } from './formulario/formulario.component';
+import { CategoriaRoutingModule } from './categoria-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 
 
+
+
 @NgModule({
-  declarations: [
-    ArbitroComponent,
-    FormularioComponent
-  ],
+  declarations: [],
   imports: [
     CommonModule,
-    ArbitroRoutingModule,
+    CategoriaRoutingModule,
     FontAwesomeModule,
     MatSelectModule,
     MatFormFieldModule,
@@ -34,7 +31,6 @@ import { MatIconModule } from '@angular/material/icon';
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    FormsModule
-]
+  ]
 })
-export class ArbitroModule { }
+export class CategoriaModule { }

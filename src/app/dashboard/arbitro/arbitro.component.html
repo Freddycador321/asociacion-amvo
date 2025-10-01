@@ -1,73 +1,87 @@
-<br>
-<h5 class="text-center">ÁRBITROS</h5>
-<br>
+<div class="arbitro-container">
 
-<div class="row">
-  <div class="col-lg-3 offset-1">
-    <div class="btn-group" role="group">
-      <button type="button" class="btn btn-outline-primary" (click)="agregar()">
-        <fa-icon [icon]="faPlus"></fa-icon> Nuevo Árbitro
-      </button>
-      <button type="button" class="btn btn-outline-danger" (click)="pdf()">
-        <mat-icon>picture_as_pdf</mat-icon> Descargar PDF
-      </button>
+  <!-- Header -->
+  <div class="header">
+    <h1 class="title"> Gestión de Árbitros</h1>
+
+  </div>
+
+  <!-- Search Section -->
+  <div class="search-section">
+    <div class="filter-options">
+      <select class="filter-select">
+        <option value="all">Todos</option>
+        <option value="apellido">Apellidos</option>
+        <option value="ci">Cédula</option>
+        <option value="nombre">Nombre</option>
+        <option value="categoria">Categoría</option>
+      </select>
+
+      <select class="filter-select">
+        <option value="all">Todos los estados</option>
+        <option value="HABILITADO">Habilitados</option>
+        <option value="DESHABILITADO">Deshabilitados</option>
+      </select>
     </div>
   </div>
 
-  <!-- <div class="col-lg-8">
-    <input type="search"
-           class="form-control"
-           placeholder="Buscar por apellido o CI"
-           name="filterArbitro"
-           [(ngModel)]="filterArbitro"
-           maxlength="20">
-  </div> -->
-</div>
+  <!-- Resultados -->
+  <div class="results-section">
+    <div class="results-header">
+      <h3>Árbitros Registrados ({{arbitros.length}})</h3>
+      <button class="btn btn-primary add-btn" (click)="agregar()">
+        ➕ Nuevo Árbitro
+      </button>
+    </div>
 
-<hr>
-
-<div class="row">
-  <!-- Tarjeta de cada árbitro -->
-  <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12"
-       *ngFor="let a of arbitros ; let i = index">
-
-    <div class="card"
-         [ngClass]="{'habilitado': a.estado=='HABILITADO',
-                     'deshabilitado': a.estado=='DESHABILITADO'}">
-
-      <!-- Foto -->
-      <div class="foto-container">
-        <img [src]="llenar_imagen(a.foto)" alt="Foto Árbitro" class="foto-arbitro">
-      </div>
-
-      <!-- Datos -->
-      <div class="card-body">
-        <div class="card-text datos-arbitro">
-          <strong>Nombre: </strong>{{a.apellido_arb}} {{a.nombre_arb}}<br>
-          <strong>CI: </strong>{{a.ci_arb}}<br>
-          <strong>Fecha Nac.: </strong>{{a.fecha_nac_arb| date}}<br>
-          <strong>Categoría: </strong>{{a.nivel}}<br>
-          <strong>Teléfono: </strong>{{a.cel_arb}}<br>
-          <strong>Gmail: </strong>{{a.gmail_arb}}<br>
-          <strong>Estado: </strong>{{a.estado}}<br>
-          <strong *ngIf="a.nota">Nota: </strong>{{a.nota}}<br *ngIf="a.nota">
-        </div>
-
-        <hr>
-
-        <!-- Botones -->
-        <div class="acciones">
-          <div class="btn-group" role="group">
-            <button type="button" (click)="eliminar(a)" class="btn btn-danger">
-              <fa-icon [icon]="faTrash"></fa-icon>
-            </button>
-            <button type="button" class="btn btn-success" (click)="actualizar(a)">
-              <fa-icon [icon]="faEdit"></fa-icon>
-            </button>
-          </div>
-        </div>
-
-      </div>
+    <!-- Tabla de árbitros -->
+    <div class="table-container">
+      <table class="arbitros-table">
+        <thead>
+          <tr>
+            <th>Foto</th>
+            <th>Nombre Completo</th>
+            <th>Cédula</th>
+            <th>Fecha Nac.</th>
+            <th>Categoría</th>
+            <th>Teléfono</th>
+            <th>Email</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let a of arbitros">
+            <td class="photo-cell">
+              <img [src]="llenar_imagen(a.foto)" class="table-photo">
+            </td>
+            <td>{{a.apellido_arb}} {{a.nombre_arb}}</td>
+            <td>{{a.ci_arb}}</td>
+            <td>{{a.fecha_nac_arb | date}}</td>
+            <td>
+              <!-- Badge con colores dinámicos -->
+              <span class="categoria-badge" 
+                    [ngClass]="{
+                      'nivel1': a.nivel === 'Nivel 1',
+                      'nivel2': a.nivel === 'Nivel 2',
+                      'nivel3': a.nivel === 'Nivel 3'
+                    }">
+                {{a.nivel}}
+              </span>
+            </td>
+            <td>{{a.cel_arb}}</td>
+            <td>{{a.gmail_arb}}</td>
+            <td>
+              <span class="status-badge" [ngClass]="a.estado">{{a.estado}}</span>
+            </td>
+            <td class="actions-cell">
+              <button class="btn-icon edit-btn" (click)="actualizar(a)">✏️</button>
+              <button class="btn-icon delete-btn" (click)="eliminar(a)">🗑️</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
+
 </div>

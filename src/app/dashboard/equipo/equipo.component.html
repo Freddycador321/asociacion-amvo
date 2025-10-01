@@ -1,0 +1,74 @@
+<div class="equipo-container">
+
+  <!-- Header -->
+  <div class="header">
+    <h1 class="title">⚡ Gestión de Equipos</h1>
+    <p class="subtitle">Administra los equipos registrados y su información</p>
+  </div>
+
+  <!-- Search & Add -->
+  <div class="search-section">
+    <div class="filter-options">
+      <select class="filter-select">
+        <option value="all">Todas las categorías</option>
+        <option *ngFor="let cat of categorias" [value]="cat.categoria_id">
+          {{ cat.nombre_categoria }}
+        </option>
+      </select>
+
+      <select class="filter-select">
+        <option value="all">Todos los estados</option>
+        <option value="HABILITADO">Habilitados</option>
+        <option value="DESHABILITADO">Deshabilitados</option>
+      </select>
+    </div>
+
+    <button class="add-btn" (click)="agregar()">
+      ➕ Nuevo Equipo
+    </button>
+  </div>
+
+  <!-- Resultados -->
+  <div class="results-section">
+    <div class="results-header">
+      <h3>Equipos Registrados <span class="count">({{ equipos.length }})</span></h3>
+    </div>
+
+    <!-- Tabla de equipos -->
+    <div class="table-container">
+      <table class="equipos-table">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Nombre del Equipo</th>
+            <th>Categoría</th>
+            <th>Nota</th>
+            <th>Estado</th>
+            <th class="text-center">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let e of equipos; let i = index" class="row-hover">
+            <td>{{ i + 1 }}</td>
+            <td class="font-bold">{{ e.nombre_eq }}</td>
+            <td>{{ e.categoria?.nombre_categoria || 'Sin categoría' }}</td>
+            <td>{{ e.nota || '-' }}</td>
+            <td>
+              <span class="status-badge" [ngClass]="{
+                  'habilitado': e.estado === 'HABILITADO',
+                  'deshabilitado': e.estado === 'DESHABILITADO'
+                }">
+                {{ e.estado }}
+              </span>
+            </td>
+            <td class="actions-cell">
+              <button class="btn-icon edit-btn" (click)="actualizar(e)">✏️</button>
+              <button class="btn-icon delete-btn" (click)="eliminar(e)">🗑️</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

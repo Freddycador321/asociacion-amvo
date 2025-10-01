@@ -1,0 +1,84 @@
+<div class="jugadores-container">
+
+  <!-- Header -->
+  <div class="header">
+    <h1>⚡ Gestión de Jugadores</h1>
+    <p>Administra y gestiona los jugadores registrados</p>
+  </div>
+
+  <!-- Search & Filters -->
+  <div class="search-section">
+    <div class="filters">
+      <select class="filter-select">
+        <option value="all">Todos</option>
+        <option value="apellido">Apellidos</option>
+        <option value="ci">Cédula</option>
+        <option value="nombre">Nombre</option>
+        <option value="categoria">Categoría</option>
+      </select>
+
+      <select class="filter-select">
+        <option value="all">Todos los estados</option>
+        <option value="HABILITADO">Habilitados</option>
+        <option value="DESHABILITADO">Deshabilitados</option>
+      </select>
+    </div>
+
+    <button class="add-btn" (click)="agregar()">
+      ➕ Nuevo Jugador
+    </button>
+  </div>
+
+  <!-- Resultados -->
+  <div class="results">
+    <div class="results-header">
+      <h3>
+        Jugadores Registrados
+        <span class="count">({{ jugadores.length }})</span>
+      </h3>
+    </div>
+
+    <!-- Tabla -->
+    <div class="table-wrapper">
+      <table class="jugadores-table">
+        <thead>
+          <tr>
+            <th>Foto</th>
+            <th>Nombre Completo</th>
+            <th>Cédula</th>
+            <th>Fecha Nac.</th>
+            <th>Categoría</th>
+            <th>Teléfono</th>
+            <th>Email</th>
+            <th>Estado</th>
+            <th class="acciones">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let a of jugadores">
+            <td>
+              <img [src]="llenar_imagen(a.foto)" class="foto">
+            </td>
+            <td>{{ a.apellido }} {{ a.nombre }}</td>
+            <td>{{ a.ci }}</td>
+            <td>{{ a.fecha_naci | date }}</td>
+            <td>{{ a.rama }}</td>
+            <td>{{ a.equipo_id }}</td>
+            <td>
+              <!-- Estado dinámico -->
+              <!-- <span class="estado"
+                    [ngClass]="a.estado === 'HABILITADO' ? 'estado-habilitado' : 'estado-deshabilitado'">
+                {{ a.estado }}
+              </span> -->
+            </td>
+            <td class="acciones">
+              <button class="btn-editar" (click)="actualizar(a)">✏️</button>
+              <button class="btn-eliminar" (click)="eliminar(a)">🗑️</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

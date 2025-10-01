@@ -1,95 +1,44 @@
 <br>
-<div class="row">
-  <div class="col-sm-12 col-md-2 col-lg-4 col-xl-4"></div>
-  <div class="col-sm-12 col-md-8 col-lg-4 col-xl-4">
-  <div class="card">
-    <div class="card-header" style="text-align: center;"><h4><strong>INICIAR SESION</strong></h4></div>
-    <div class="card-body">
-      <!-- <div style="text-align: center;">
-            <img src="assets/images/login.png" alt="" >
-          </div> -->
-      <div>
-        <div mat-dialog-content>
-          <form [formGroup]="formulario" onsubmit="onLogin()">
-              <p>
-                  <mat-form-field appearance="fill">
-                      <mat-label>Cuenta</mat-label>
-                      <input matInput formControlName="username" type="text" placeholder="Cuenta" name="username" maxlength="15" minlength="4" pattern="[A-Za-z0-9]{4,15}">
-                      <mat-icon matSuffix>account_circle</mat-icon>
-                      <mat-error *ngIf="username?.invalid">{{error_cuenta()}}</mat-error>
-                  </mat-form-field>
-              </p>
-              <p>
-                  <mat-form-field appearance="fill">
-                      <mat-label>Clave</mat-label>
-                      <mat-icon matSuffix (click)="fieldTextType=!fieldTextType" style="cursor:pointer">{{fieldTextType ? 'lock' : 'visibility'}}</mat-icon>
-                      <!-- <input type="{{pp}}" placeholder="Clave" name="clave" maxlength="20" minlength="8"> -->
-                      <input matInput formControlName="password" [type]="fieldTextType ? 'text' : 'password'" placeholder="Clave" name="clave" maxlength="20" minlength="8">
-                      <mat-error *ngIf="password?.invalid">{{error_password()}}</mat-error>
-                  </mat-form-field>
-              </p>
-          </form>
-          <div mat-dialog-actions>
-            <div class="form-group" style="text-align: center;">
-              <button type="submit" class="btn btn-primary" [disabled]="!formulario.valid" (click)="onLogin()">Iniciar Sesion</button>
-            </div>
+<div class="row justify-content-center">
+  <div class="col-sm-12 col-md-8 col-lg-4">
+    <div class="card shadow-lg border-0 login-card">
+      <div class="card-header text-center bg-primary text-white">
+        <h4 class="m-0"><strong>INICIAR SESIÓN</strong></h4>
+      </div>
+      <div class="card-body p-4">
+        <form [formGroup]="formulario" (ngSubmit)="onLogin()">
+          <!-- Campo Usuario -->
+          <mat-form-field appearance="outline" class="w-100 mb-3">
+            <mat-label>Cuenta</mat-label>
+            <input matInput formControlName="username" type="text" placeholder="Ingrese su cuenta" maxlength="15" minlength="4"
+                   pattern="[A-Za-z0-9]{4,15}">
+            <mat-icon matSuffix>account_circle</mat-icon>
+            <mat-error *ngIf="username?.invalid">{{ error_cuenta() }}</mat-error>
+          </mat-form-field>
+
+          <!-- Campo Clave -->
+          <mat-form-field appearance="outline" class="w-100 mb-3">
+            <mat-label>Clave</mat-label>
+            <input matInput formControlName="password" [type]="fieldTextType ? 'text' : 'password'"
+                   placeholder="Ingrese su clave" maxlength="20" minlength="8">
+            <button mat-icon-button matSuffix type="button" (click)="fieldTextType = !fieldTextType">
+              <mat-icon>{{ fieldTextType ? 'visibility' : 'visibility_off' }}</mat-icon>
+            </button>
+            <mat-error *ngIf="password?.invalid">{{ error_password() }}</mat-error>
+          </mat-form-field>
+
+          <!-- Botón -->
+          <div class="text-center mt-4">
+            <button type="submit" class="btn btn-primary btn-lg px-5"
+                    [disabled]="!formulario.valid">Iniciar Sesión</button>
           </div>
-        </div>
+        </form>
+      </div>
+
+      <!-- Pie de tarjeta -->
+      <div class="card-footer text-muted text-center">
+        <small>Asociación de Voleibol Oruro © 2025</small>
       </div>
     </div>
   </div>
-</div>
-<!-- <div>
-  <div mat-dialog-content>
-      <div style="display: flex;flex-direction: column; margin:1rem auto; max-width: 700px; padding: 1rem;">
-          <form [formGroup]="agregar">
-            <p>
-              <mat-form-field appearance="fill">
-                  <mat-label>Cuenta</mat-label>
-                      <input matInput formControlName="username" type="text" placeholder="Cuenta" name="username" maxlength="20" minlength="3" pattern="[A-Za-z][0-9]{6,20}">
-                  <mat-error *ngIf="username.invalid">{{error_cuenta()}}</mat-error>
-              </mat-form-field>
-          </p>
-          <p>
-              <mat-form-field appearance="fill">
-                  <mat-label>Clave</mat-label>
-                  <input matInput formControlName="password" type="password" name="password" maxlength="20" minlength="8">
-                  <mat-error *ngIf="password.invalid">{{error_clave()}}</mat-error>
-              </mat-form-field>
-          </p>
-
-          </form>
-      </div>
-  </div>
-
-</div> -->
-
-        <!-- <form [formGroup]="agregar"> -->
-
-
-        <!-- <form #loginForm=ngForm (ngSubmit)="onLogin()"> -->
-
-          <!-- <div class="alert alert-danger"[hidden]="!error" role="alert">
-            {{error}}
-          </div> -->
-
-          <!-- <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Cuenta</label>
-            <input type="text" name="username" class="form-control" id="username1" aria-describedby="emailHelp" placeholder="Cuenta" formControlName="username" required minlength="4">
-            <mat-error *ngIf="username.invalid">{{error_cuenta()}}</mat-error>
-          </div> -->
-          <!-- <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Clave</label>
-            <input type="password" name="password" class="form-control" id="password1" placeholder="Clave" [(ngModel)]="form.password" required>
-          </div> -->
-          <!-- <div class="form-group" style="text-align: center;">
-            <button type="submit" class="btn btn-danger" [disabled]="!loginForm.valid">Iniciar Sesion</button>
-          </div>        -->
-        <!-- </form>       -->
-        <!-- <div mat-dialog-actions>
-          <button mat-button class="btn btn-danger" [disabled]="agregar.invalid">Iniciar Sesion</button>
-      </div>
-      </div>
-    </div>
-  </div> -->
 </div>

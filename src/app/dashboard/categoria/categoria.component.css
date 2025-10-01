@@ -1,5 +1,5 @@
 /* Fondo general */
-.arbitro-container {
+.categoria-container {
   background: #f0f4f8;
   padding: 20px;
   border-radius: 12px;
@@ -15,73 +15,63 @@
   font-size: 28px;
   color: #2c3e50;
 }
-.header .subtitle {
-  color: #7f8c8d;
-  font-size: 16px;
+
+/* Sección de búsqueda */
+.search-section {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+.filter-input {
+  width: 300px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+.filter-input:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 4px rgba(52, 152, 219, 0.6);
+}
+
+/* Resultados */
+.results-section {
+  margin-top: 10px;
+}
+.results-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+.results-header h3 {
+  color: #34495e;
 }
 
 /* Tabla */
 .table-container {
   overflow-x: auto;
 }
-.arbitros-table {
+.categorias-table {
   width: 100%;
   border-collapse: collapse;
   background: #fff;
   border-radius: 10px;
   overflow: hidden;
 }
-.arbitros-table th {
+.categorias-table th {
   background: #3498db;
   color: white;
   padding: 12px;
+  text-align: center;
 }
-.arbitros-table td {
+.categorias-table td {
   padding: 10px;
   text-align: center;
   border-bottom: 1px solid #ddd;
 }
 
-/* Foto */
-.table-photo {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-}
-
-/* Categorías con colores */
-.categoria-badge {
-  padding: 5px 10px;
-  border-radius: 8px;
-  font-weight: bold;
-  color: white;
-}
-.categoria-badge.nivel1 {
-  background-color: #e74c3c; /* Rojo */
-}
-.categoria-badge.nivel2 {
-  background-color: #f1c40f; /* Amarillo */
-  color: #000;
-}
-.categoria-badge.nivel3 {
-  background-color: #2ecc71; /* Verde */
-}
-
-/* Estado */
-.status-badge {
-  padding: 5px 10px;
-  border-radius: 6px;
-  font-weight: bold;
-  color: white;
-}
-.status-badge.HABILITADO {
-  background: #27ae60;
-}
-.status-badge.DESHABILITADO {
-  background: #c0392b;
-}
-
-/* Botones */
+/* Botón agregar */
 .add-btn {
   background: #2980b9;
   color: white;
@@ -95,16 +85,24 @@
   background: #1f6391;
 }
 
+/* Botones de acciones */
 .btn-icon {
   border: none;
   background: transparent;
   cursor: pointer;
   font-size: 18px;
   margin: 0 5px;
+  transition: 0.3s;
 }
 .edit-btn {
   color: #27ae60;
 }
+.edit-btn:hover {
+  color: #1e8449;
+}
 .delete-btn {
   color: #e74c3c;
+}
+.delete-btn:hover {
+  color: #c0392b;
 }

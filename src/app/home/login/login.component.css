@@ -1,6 +1,48 @@
-mat-form-field{
-  width: 100%;
+/* ======= CARD LOGIN ======= */
+.login-card {
+  border-radius: 12px;
+  background-color: #ffffff;
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out;
 }
-.row{
-  width: 100%;
+
+.login-card:hover {
+  transform: translateY(-4px);
+}
+
+/* ======= HEADER ======= */
+.card-header {
+  font-size: 1.3rem;
+  letter-spacing: 0.5px;
+  padding: 1rem;
+}
+
+/* ======= CAMPOS ======= */
+mat-form-field {
+  font-size: 1rem;
+}
+
+mat-error {
+  font-size: 0.85rem;
+  color: #d32f2f;
+}
+
+/* ======= BOTÓN ======= */
+button.btn-primary {
+  background-color: #0d6efd;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+button.btn-primary:hover {
+  background-color: #084298;
+}
+
+/* ======= RESPONSIVE ======= */
+@media (max-width: 576px) {
+  .login-card {
+    margin: 0 10px;
+  }
 }

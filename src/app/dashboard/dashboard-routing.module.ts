@@ -35,14 +35,14 @@ const routes: Routes = [
         },
         loadChildren:()=>import('./proveedor/proveedor.module').then(p => p.ProveedorModule),
       },
-      {
-        path:'almacen',
-        canActivate:[isLoggedInGuard ,hasRoleGuard],
-        data:{
-          allowedRoles:['1','2','3']
-        },
-        loadChildren:()=>import('./almacen/almacen.module').then(a => a.AlmacenModule),
-      },
+      // {
+      //   path:'almacen',
+      //   canActivate:[isLoggedInGuard ,hasRoleGuard],
+      //   data:{
+      //     allowedRoles:['1','2','3']
+      //   },
+      //   //loadChildren:()=>import('./almacen/almacen.module').then(a => a.AlmacenModule),
+      // },
       {
         path:'venta',
         canActivate:[isLoggedInGuard ,hasRoleGuard],
@@ -58,6 +58,38 @@ const routes: Routes = [
           allowedRoles:['1','2','3']
         },
         loadChildren:()=>import('./arbitro/arbitro.module').then(c => c.ArbitroModule),
+      },
+            {
+        path:'jugador',
+        canActivate:[isLoggedInGuard ,hasRoleGuard],
+        data:{
+          allowedRoles:['1','2','3']
+        },
+        loadChildren:()=>import('./jugador/jugaror.module').then(c => c.JugarorModule),
+      },
+              {
+        path:'categoria',
+        canActivate:[isLoggedInGuard ,hasRoleGuard],
+        data:{
+          allowedRoles:['1','2','3']
+        },
+        loadChildren:()=>import('./categoria/categoria.module').then(c => c.CategoriaModule),
+      },
+              {
+        path:'equipo',
+        canActivate:[isLoggedInGuard ,hasRoleGuard],
+        data:{
+          allowedRoles:['1','2','3']
+        },
+        loadChildren:()=>import('./equipo/equipo.module').then(c => c.EquipoModule),
+      },
+              {
+        path:'club',
+        canActivate:[isLoggedInGuard ,hasRoleGuard],
+        data:{
+          allowedRoles:['1','2','3']
+        },
+        loadChildren:()=>import('./club/club.module').then(c => c.ClubModule),
       },
     ]
   },

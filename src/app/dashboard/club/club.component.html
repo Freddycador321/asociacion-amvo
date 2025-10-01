@@ -1,0 +1,67 @@
+<div class="club-container">
+
+  <!-- Header -->
+  <div class="header">
+    <h1 class="title">Gestión de Clubes</h1>
+  </div>
+
+  <!-- Search Section -->
+  <div class="search-section">
+    <div class="filter-options">
+      <select class="filter-select">
+        <option value="all">Todos</option>
+        <option value="nombre">Nombre del Club</option>
+        <option value="propietario">Propietario</option>
+        <option value="abreviatura">Abreviatura</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Resultados -->
+  <div class="results-section">
+    <div class="results-header">
+      <h3>Clubes Registrados ({{clubes.length}})</h3>
+      <button class="btn btn-primary add-btn" (click)="agregar()">
+        ➕ Nuevo Club
+      </button>
+    </div>
+
+    <!-- Tabla de clubes -->
+    <div class="table-container">
+      <table class="clubes-table">
+        <thead>
+          <tr>
+            <th>Foto</th>
+            <th>Nombre del Club</th>
+            <th>Abreviatura</th>
+            <th>Propietario</th>
+            <th>Cédula</th>
+            <th>Fecha Nac.</th>
+            <th>Teléfono</th>
+            <th>Email</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let c of clubes">
+            <td class="photo-cell">
+              <img [src]="llenar_imagen(c.foto)" class="table-photo" />
+            </td>
+            <td>{{c.nombre_club}}</td>
+            <td>{{c.abreviatura}}</td>
+            <td>{{c.apellido_prop}} {{c.nombre_prop}}</td>
+            <td>{{c.ci_prop}}</td>
+            <td>{{c.fecha_nac | date}}</td>
+            <td>{{c.tel_cel}}</td>
+            <td>{{c.gmail}}</td>
+            <td class="actions-cell">
+              <button class="btn-icon edit-btn" (click)="actualizar(c)">✏️</button>
+              <button class="btn-icon delete-btn" (click)="eliminar(c)">🗑️</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
